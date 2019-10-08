@@ -1,0 +1,1 @@
+Para compilar el código se usará el comando javac Control.java en la terminal, estando situado en la carpeta src. Para correr el programa se usará el comando java Control en las mismas condiciones que cuando se compiló.
