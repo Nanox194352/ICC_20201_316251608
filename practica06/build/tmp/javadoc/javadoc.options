@@ -1,0 +1,7 @@
+-classpath '/home/jclinux/Documentos/ICC_20201_316251608/practica06/build/classes/java/main:/home/jclinux/Documentos/ICC_20201_316251608/practica06/build/resources/main'
+-d '/home/jclinux/Documentos/ICC_20201_316251608/practica06/build/docs/javadoc'
+-doctitle 'practica06 API'
+-quiet 
+-windowtitle 'practica06 API'
+'/home/jclinux/Documentos/ICC_20201_316251608/practica06/src/main/java/MatrixTests.java'
+'/home/jclinux/Documentos/ICC_20201_316251608/practica06/src/main/java/Matrix.java'
