@@ -12,10 +12,33 @@ public class MatrixTests{
       }
     }
     public static void add_test(){
+      double[][] iwannasleep = {{3, 2, 1}, {3, 2, 1}, {3, 2, 1}};
+      double[][] help = {{1,2,3}, {1,2,3}, {1,2,3}};
+      double[][] iranoutofnames = {{4, 4, 4}, {4, 4, 4}, {4, 4, 4}};
+      Matrix auxiliar = new Matrix(iwannasleep);
+      Matrix added = new Matrix(help);
+      Matrix expected = new Matrix(iranoutofnames);
+      auxiliar.add(added);
+      if (auxiliar.equals(expected)) {
+        System.out.println("addition succeded");
+      } else {
         System.out.println("addition failed");
+      }
+
     }
     public static void matrixProduct_test(){
+      double[][] iwannasleep = {{3, 2, 1}, {3, 2, 1}, {3, 2, 1}};
+      double[][] help = {{1,2,3}, {1,2,3}, {1,2,3}};
+      double[][] pr = {{18, 12, 6},{18, 12, 6},{18, 12, 6}};
+      Matrix auxiliar = new Matrix(iwannasleep);
+      Matrix added = new Matrix(help);
+      Matrix expected = new Matrix(pr);
+      auxiliar.matrixProduct(added);
+      if (auxiliar.equals(expected)) {
+        System.out.println("matrix product succeded");
+      } else {
         System.out.println("matrix product failed");
+      }
     }
     public static void setElement_test(){
       double[][] aux = {{1, 2}, {3, 4}};
@@ -38,10 +61,23 @@ public class MatrixTests{
       }
     }
     public static void determinant_test(){
+      double[][] array = {{2}};
+      Matrix example = new Matrix(array);
+      if (example.determinant()==2) {
+          System.out.println("Determinant succeded");
+      } else {
         System.out.println("Determinant failed");
+      }
     }
     public static void equals_test(){
+      double[][] aux = {{43,234,354},{134,364,342546},{123,213,321}};
+      Matrix first = new Matrix(aux);
+      Matrix second = new Matrix(aux);
+      if (first.equals(second)) {
+        System.out.println("equals succeded");
+      } else {
         System.out.println("equals failed");
+      }
     }
 
     public static void main(String[] args) {
@@ -52,5 +88,6 @@ public class MatrixTests{
         getElement_test();
         determinant_test();
         equals_test();
+
     }
 }

@@ -16,7 +16,8 @@ public class Matrix{
       correct=((array[0].length)==(array[i].length));
     }
     if (correct) {
-      this.matrix=array;
+      double[][] matriz = array;
+      this.matrix=matriz;
       this.column=array.length;
       this.row=array[0].length;
     } else {
@@ -32,7 +33,8 @@ public class Matrix{
       correct=((aux[0].length)==(aux[i].length));
     }
     if (correct) {
-      this.matrix = aux;
+      double[][] matrix = aux;
+      this.matrix = matrix;
     } else {
       System.out.println("Invalid Matrix, inconsistent number of rows on received array.");
     }
@@ -56,7 +58,21 @@ public class Matrix{
     }
   }
   //Función que calcula producto de matrices
-  public void matrixProduct(Matrix m){}
+  public void matrixProduct(Matrix m){
+    if (this.row==m.column) {
+      Matrix product = new Matrix(this.column, m.row);
+      for (int i=0; i<this.column; i++) {
+        for (int ii=0; ii<this.row; ii++) {
+          for (int iii=0; iii<m.row; iii++) {
+            product.matrix[ii][i]+=(this.getElement(iii, i)*m.getElement(ii, iii));
+          }
+        }
+      }
+      this.setMatrix(product.matrix);
+    } else {
+      System.out.println("Impossible to make the Matrix Product with given matrixes.");
+    }
+  }
   //Función que obtiene el elemento i j
   public double getElement(int i, int j){
     double[][] aux = this.getMatrix();
@@ -70,18 +86,59 @@ public class Matrix{
   }
   //Función que calcula el determinante si es nxn
   public double determinant(){
-    return 0;
+    double ans=0;
+    int s;
+    if(matrix.length==1){
+      return(matrix[0][0]);
+    }
+    for(int i=0;i<matrix.length;i++){
+      double[][]smaller= new double[matrix.length-1][matrix.length-1];
+      for(int ii=1;ii<matrix.length;ii++){
+        for(int iii=0;iii<matrix.length;iii++){
+          if(iii<i){
+            smaller[ii-1][iii]=matrix[ii][iii];
+          }
+          else if(iii>i){
+            smaller[ii-1][iii-1]=matrix[ii][iii];
+          }
+        }
+      }
+      if(i%2==0){
+        s=1;
+      }
+      else{
+        s=-1;
+      }
+      Matrix submatrix = new Matrix(smaller);
+      ans+=s*matrix[0][i]*(submatrix.determinant());
+    }
+    return(ans);
   }
   //Función que te dice si 2 matrices son iguales
-  @Override
-  public boolean equals(Object o){
-    if (o instanceof Matrix) {
-      Matrix q = (Matrix)o;
-      double[][] first = this.getMatrix();
-      double[][] second = q.getMatrix();
-      return Arrays.equals(first, second);
+  public boolean equals(Matrix o){
+    if (((this.row)==(o.row))&&((this.column)==(this.column))) {
+      boolean ans=true;
+      for (int i=0; i<column; i++) {
+        for (int ii=0; ii<row; ii++) {
+          if ((this.getElement(i, ii))!=(o.getElement(i, ii))) {
+            return false;
+          }
+        }
+      }
+      return true;
     } else {
       return false;
     }
+  }
+  public String toString(){
+    String estring="";
+    for (int i=0; i<row; i++) {
+      estring+="| ";
+      for (int ii=0; ii<column; ii++) {
+      estring+=(this.getElement(ii, i)+" ");
+      }
+      estring+="|\n";
+    }
+    return estring;
   }
 }
