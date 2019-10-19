@@ -20,10 +20,10 @@ public class Control{
         return false;
       }
     }
-/**
-* @param problema1 Recibe un String y regresa si es un palíndromo o no.
-* @return true o false
-*/
+    /**
+    * @param problema1 Recibe un String y regresa si es un palíndromo o no.
+    * @return true o false
+    */
 
     public static boolean problema2(int[] arreglo, int k){
       int n=arreglo.length;

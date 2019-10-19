@@ -1,3 +1,7 @@
+/**
+* Código de clase Matriz de la práctica 6
+* @author Juan Carlos Zenteno Pompa
+*/
 import java.util.Arrays;
 public class Matrix{
   private double[][] matrix;
@@ -24,9 +28,14 @@ public class Matrix{
       System.out.println("Invalid Matrix, inconsistent number of rows on received array");
     }
   }
+
   public double[][] getMatrix() {
     return this.matrix;
   }
+  /**
+  * @param getMatrix Returns the bidimensional array that represents the Matrix.
+  */
+
   public void setMatrix(double[][] aux) {
     boolean correct=true;
     for (int i=1; ((i<aux.length)||(correct==false)); i++) {
@@ -39,6 +48,9 @@ public class Matrix{
       System.out.println("Invalid Matrix, inconsistent number of rows on received array.");
     }
   }
+  /**
+  * @param setMatrix Lets the user change the bidimensional array that represents the Matrix. It checks if the number of rows and columns is consistent.
+  */
   //Función que calcula producto escalar
   public void scalarProduct(double scalar){
     for (int i=0; i<column; i++) {
@@ -47,6 +59,9 @@ public class Matrix{
       }
     }
   }
+  /**
+  * @param scalarProduct Makes the scalar product of the matrix and any real number it receives.
+  */
   //Función que calcula suma de matrices
   public void add(Matrix m){
     if (((this.column)==(m.column))&&((this.row)==(m.row))) {
@@ -57,6 +72,9 @@ public class Matrix{
       }
     }
   }
+  /**
+  * @param add Makes the addition between two Matrixes. The result is saved on the Matrix that was applied the method.
+  */
   //Función que calcula producto de matrices
   public void matrixProduct(Matrix m){
     if (this.row==m.column) {
@@ -73,17 +91,26 @@ public class Matrix{
       System.out.println("Impossible to make the Matrix Product with given matrixes.");
     }
   }
+  /**
+  * @param matrixProduct Makes the product between two matrixes. The result is saved on the Matrix that was applied the method.
+  */
   //Función que obtiene el elemento i j
   public double getElement(int i, int j){
     double[][] aux = this.getMatrix();
     return aux[i][j];
   }
+  /**
+  * @param getElement Returns any element on the matrix as long as it is provided with its column and row number.
+  */
   //function set element
   public void setElement(int i, int j,double e){
     double[][] aux = this.getMatrix();
     aux[i][j]=e;
     this.setMatrix(aux);
   }
+  /**
+  * @param setElement Changes any element in the Matrix  for any real number as long as is provided with its column and row number.
+  */
   //Función que calcula el determinante si es nxn
   public double determinant(){
     double ans=0;
@@ -114,6 +141,9 @@ public class Matrix{
     }
     return(ans);
   }
+  /**
+  * @param determinar Calculates the determinant of a Matrix.
+  */
   //Función que te dice si 2 matrices son iguales
   public boolean equals(Matrix o){
     if (((this.row)==(o.row))&&((this.column)==(this.column))) {
@@ -130,6 +160,9 @@ public class Matrix{
       return false;
     }
   }
+  /**
+  * @param equals returns true or false if any two given matrixes have the same characteristics.
+  */
   public String toString(){
     String estring="";
     for (int i=0; i<row; i++) {
@@ -141,4 +174,7 @@ public class Matrix{
     }
     return estring;
   }
+  /**
+  * @param toString returns a String that represents the Matrix as it is usually depicted.   
+  */
 }
