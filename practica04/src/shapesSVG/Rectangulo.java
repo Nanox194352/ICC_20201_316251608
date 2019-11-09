@@ -1,10 +1,8 @@
 package shapesSVG;
-public class Rectangulo {
+public class Rectangulo extends Shape{
   private Vector2 P;
   private double alto;
   private double ancho;
-  private double area;
-  private double perimetro;
   public Rectangulo(Vector2 p, double h, double l) {
     this.P=p;
     this.alto=h;

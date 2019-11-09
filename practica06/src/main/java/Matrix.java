@@ -1,12 +1,36 @@
+import java.util.Iterator;
 /**
 * Código de clase Matriz de la práctica 6
 * @author Juan Carlos Zenteno Pompa
 */
 import java.util.Arrays;
-public class Matrix{
+public class Matrix implements Iterable<Double>{
   private double[][] matrix;
   private int row;
   private int column;
+
+public Iterator<Double> iterator(){
+  return new MatrixIterator();
+}
+private class MatrixIterator<Double> implements Iterator<Double> {
+  private int i=0;
+  private int ii=0;
+    // Checks if the next element exists
+    public boolean hasNext() {
+      return ((i==row)&&(ii==column));
+    }
+
+    // moves the cursor/iterator to next element
+
+      public Double next(){
+        if(ii<Matrix.this.matrix[0].length) ii++;
+        if(ii == Matrix.this.matrix[0].length){
+          ii = 0;
+          i++;
+        }
+        return Matrix.this.matrix[this.i][this.ii];
+      }
+  }
   //Construye una matriz vacia de n por m
   public Matrix(int n, int m){
     this.matrix=new double[n][m];
@@ -29,11 +53,15 @@ public class Matrix{
     }
   }
 
+  /**
+  * @param getMatrix Returns the bidimensional array that represents the Matrix.
+  */
   public double[][] getMatrix() {
     return this.matrix;
   }
+
   /**
-  * @param getMatrix Returns the bidimensional array that represents the Matrix.
+  * @param setMatrix Lets the user change the bidimensional array that represents the Matrix. It checks if the number of rows and columns is consistent.
   */
 
   public void setMatrix(double[][] aux) {
@@ -49,7 +77,7 @@ public class Matrix{
     }
   }
   /**
-  * @param setMatrix Lets the user change the bidimensional array that represents the Matrix. It checks if the number of rows and columns is consistent.
+  * @param scalarProduct Makes the scalar product of the matrix and any real number it receives.
   */
   //Función que calcula producto escalar
   public void scalarProduct(double scalar){
@@ -60,7 +88,7 @@ public class Matrix{
     }
   }
   /**
-  * @param scalarProduct Makes the scalar product of the matrix and any real number it receives.
+  * @param add Makes the addition between two Matrixes. The result is saved on the Matrix that was applied the method.
   */
   //Función que calcula suma de matrices
   public void add(Matrix m){
@@ -73,7 +101,7 @@ public class Matrix{
     }
   }
   /**
-  * @param add Makes the addition between two Matrixes. The result is saved on the Matrix that was applied the method.
+  * @param matrixProduct Makes the product between two matrixes. The result is saved on the Matrix that was applied the method.
   */
   //Función que calcula producto de matrices
   public void matrixProduct(Matrix m){
@@ -92,7 +120,7 @@ public class Matrix{
     }
   }
   /**
-  * @param matrixProduct Makes the product between two matrixes. The result is saved on the Matrix that was applied the method.
+  * @param getElement Returns any element on the matrix as long as it is provided with its column and row number.
   */
   //Función que obtiene el elemento i j
   public double getElement(int i, int j){
@@ -100,7 +128,7 @@ public class Matrix{
     return aux[i][j];
   }
   /**
-  * @param getElement Returns any element on the matrix as long as it is provided with its column and row number.
+  * @param setElement Changes any element in the Matrix  for any real number as long as is provided with its column and row number.
   */
   //function set element
   public void setElement(int i, int j,double e){
@@ -109,7 +137,7 @@ public class Matrix{
     this.setMatrix(aux);
   }
   /**
-  * @param setElement Changes any element in the Matrix  for any real number as long as is provided with its column and row number.
+  * @param determinar Calculates the determinant of a Matrix.
   */
   //Función que calcula el determinante si es nxn
   public double determinant(){
@@ -142,7 +170,7 @@ public class Matrix{
     return(ans);
   }
   /**
-  * @param determinar Calculates the determinant of a Matrix.
+  * @param equals returns true or false if any two given matrixes have the same characteristics.
   */
   //Función que te dice si 2 matrices son iguales
   public boolean equals(Matrix o){
@@ -161,7 +189,7 @@ public class Matrix{
     }
   }
   /**
-  * @param equals returns true or false if any two given matrixes have the same characteristics.
+  * @param toString returns a String that represents the Matrix as it is usually depicted.
   */
   public String toString(){
     String estring="";
@@ -174,7 +202,4 @@ public class Matrix{
     }
     return estring;
   }
-  /**
-  * @param toString returns a String that represents the Matrix as it is usually depicted.   
-  */
 }

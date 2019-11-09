@@ -10,14 +10,13 @@ public class Sketch extends PApplet{
   }
 
   public void setup(){
-    fill(120,50,240);
   }
 
   public void draw(){
     int[][] tablero = new int[8][8];
     for (int i=0; i<8; i++) {
       for (int ii=0; ii<8; ii++) {
-        if ((ii%2)==(i%2)) {
+        if ((ii%2)!=(i%2)) {
           fill(000000);
         } else {
           fill(255, 255, 255);

@@ -1,9 +1,7 @@
 package shapesSVG;
-public class Circulo {
+public class Circulo extends Shape{
   private Vector2 C;
   private double radio;
-  private double perimetro;
-  private double area;
 
   public Circulo(Vector2 c, double r) {
     this.C=c;

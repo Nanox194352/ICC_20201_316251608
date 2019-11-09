@@ -1,23 +1,25 @@
 package shapesSVG;
-public class Linea {
+public class Linea extends Shape{
   private Vector2 P;
   private Vector2 Q;
-  private double longitud;
 
   public Linea(Vector2 P1, Vector2 Q1) {
     this.P=P1;
     this.Q=Q1;
-    this.longitud=P.distancia(Q);
+    this.perimetro=P.distancia(Q);
+    this.area=0;
   }
   public Linea(double x1, double y1, double x2, double y2) {
     this.P = new Vector2(x1, y1);
     this.Q = new Vector2(x2, y2);
-    this.longitud= P.distancia(Q);
+    this.perimetro= P.distancia(Q);
+    this.area=0.0;
   }
   public Linea() {
     this.P= new Vector2(0.0, 0.0);
     this.Q= new Vector2(0.0, 0.0);
-    this.longitud=0.0;
+    this.perimetro=0.0;
+    this.area=0.0;
   }
   /**
   *@param toString convierte una linea cualquiera a una descripción a través desus extremos (a,b) y (c, d).

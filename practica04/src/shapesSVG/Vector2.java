@@ -4,20 +4,21 @@
 * Forma parte del paquete toSVG que hace lo mismo con algunas figuras geométricas básicas.
 */
 package shapesSVG;
-public class Vector2 {
+public class Vector2 extends Shape{
   private double x;
   private double y;
-  private double magnitud;
 
   public Vector2 (double x1, double y1) {
     this.x=x1;
     this.y=y1;
-    this.magnitud=10;
+    this.area=0.0;
+    this.perimetro=0.0;
   }
   public Vector2 () {
     this.x=0.0;
     this.y=0.0;
-    this.magnitud=0.0;
+    this.area=0.0;
+    this.perimetro=0.0;
   }
   /**
   *@param getX regresa el valor en X para el punto P al que se le aplique este método
@@ -35,13 +36,13 @@ public class Vector2 {
   *@param getMagnitud regresa el valor de la magnitud para el punto P al que se le aplique este método. Ésta magnitud representa el tamaño con el que se va a representar el punto.
   */
   public double getMagnitud(){
-    return this.magnitud;
+    return this.area;
   }
   /**
   *@param setMagnitud permite cambiar el valor de la variable magnitud. Así se puede alterar el tamaño con el que se representará el punto.
   */
   public void setMagnitud(double F){
-    this.magnitud= F;
+    this.area= F;
   }
   /**
   *@param distancia regresa la distancia entre dos puntos cualquiera P y Q.
