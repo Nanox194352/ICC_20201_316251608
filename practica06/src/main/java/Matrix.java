@@ -1,4 +1,5 @@
 import java.util.Iterator;
+import java.lang.Double;
 /**
 * Código de clase Matriz de la práctica 6
 * @author Juan Carlos Zenteno Pompa
@@ -12,7 +13,7 @@ public class Matrix implements Iterable<Double>{
 public Iterator<Double> iterator(){
   return new MatrixIterator();
 }
-private class MatrixIterator<Double> implements Iterator<Double> {
+private class MatrixIterator implements Iterator<Double> {
   private int i=0;
   private int ii=0;
     // Checks if the next element exists
