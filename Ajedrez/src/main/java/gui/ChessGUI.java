@@ -170,6 +170,10 @@ public class ChessGUI extends PApplet {
         Position p = new Position(x, y);
         Piece piece = board.getPiece(p);
         if (!(this.legalMoves.contains(p))) {
+          if (selected!=null) {
+            Piece pieza = board.getPiece(selected);
+            pieza.nullify();
+          }
           this.legalMoves = new LinkedList<>();
         }
 

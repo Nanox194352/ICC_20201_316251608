@@ -68,13 +68,6 @@ public class King extends Piece {
             this.legalMoves.add(nextLegalPosition);
           }
         }
-        if ((this.position.getY()<8)&&(this.position.getY()>0)) {
-          nextLegalPosition = new Position(this.position.getX()-1, this.position.getY()-1);
-          piece = board.getPiece(nextLegalPosition);
-          if (piece.getColor()!=this.getColor()) {
-            this.legalMoves.add(nextLegalPosition);
-          }
-        }
       }
       if (this.position.getY()<7) {
         Position nextLegalPosition = new Position(this.position.getX(), this.position.getY()+1);

@@ -50,8 +50,6 @@ public class Board{
         for (int i=0; i<8; i++) {
           this.matrix[i][6] = new Pawn(new Position(i, 6), ColorEnum.WHITE);
         }
-
-        this.matrix[1][4] = new King(new Position(1,4), ColorEnum.WHITE);
     }
 
     /**
