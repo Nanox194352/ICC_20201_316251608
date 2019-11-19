@@ -1,6 +1,0 @@
-apply plugin: 'java'
-apply plugin: 'application'
-mainClassName = "Sketch"
-dependencies {
-    implementation fileTree(dir:'libs', include:'*.jar')
-}
