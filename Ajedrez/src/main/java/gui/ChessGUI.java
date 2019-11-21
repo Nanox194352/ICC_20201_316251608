@@ -168,6 +168,9 @@ public class ChessGUI extends PApplet {
         int x = mouseX / PIXEL_SIZE;
         int y = mouseY / PIXEL_SIZE;
         Position p = new Position(x, y);
+        if (!(p.isLegal())) {
+          return;
+        }
         Piece piece = board.getPiece(p);
         if (!(this.legalMoves.contains(p))) {
           if (selected!=null) {
